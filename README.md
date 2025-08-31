@@ -1,21 +1,55 @@
-# 🛍️ Mi Tienda
+# 🛍️ Tienda Tricolor (Demo)
 
-Tienda simple hecha en **HTML + CSS + JavaScript**.  
-Incluye un catálogo de productos, botón para agregar al carrito y contador.
+Sitio web de demostración hecho en **HTML + CSS + JavaScript**, con temática tricolor (rojo/negro/blanco).  
+Incluye catálogo de productos, filtros, búsqueda, carrito lateral y un checkout de prueba.
+
+⚠️ **Nota:** Este proyecto es 100% educativo y **no oficial**.
+
+---
 
 ## 🚀 Demo en GitHub Pages
-Una vez activado GitHub Pages, tu sitio estará disponible en:
+El sitio queda publicado en:
+
 https://esmerilin.github.io/mi-tienda
 
-*(cambiá `TUUSUARIO` por tu nombre de usuario en GitHub).*
+*(reemplazá `TUUSUARIO` por tu usuario de GitHub y `mi-tienda` por el nombre de tu repo).*
 
-## 📂 Estructura
-- `index.html`: página principal con la tienda.
+---
 
-## 📖 Cómo probar
-1. Abrir `index.html` en un navegador.
-2. O visitar el link publicado en GitHub Pages.
+## 📂 Estructura del proyecto
+- `index.html` → contiene toda la tienda en un solo archivo (estructura, estilos y lógica JS).
+- `README.md` → este archivo de documentación.
 
-## ✨ Personalización
-- Editá el array `products` en `index.html` para cambiar nombres, precios e imágenes.
-- Podés ajustar estilos directamente en el bloque `<style>`.
+---
+
+## ✨ Funcionalidades
+- Catálogo de productos con precios, categorías y descripciones.
+- Filtros por categoría, rango de precio y etiquetas.
+- Búsqueda en vivo.
+- Ordenamiento por precio y calificación.
+- Carrito lateral con totales dinámicos y simulación de checkout.
+
+---
+
+## 🔧 Personalización
+Podés editar el array `RAW_PRODUCTS` dentro de `index.html` para cambiar:
+- **Nombre del producto**
+- **Precio**
+- **Imagen (URL)**
+- **Categoría**
+- **Tags**
+- **Stock**
+
+Ejemplo de producto:
+```js
+{ 
+  id:'cam-25-h', 
+  name:'Camiseta Titular', 
+  price:89999, 
+  category:'Indumentaria', 
+  rating:4.8, 
+  stock:20, 
+  img:'https://picsum.photos/seed/tricolor1/640/420', 
+  tags:['camiseta','rayas'], 
+  desc:'Franjas rojas, negras y blancas.' 
+}
