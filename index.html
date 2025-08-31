@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Tienda</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8fafc; }
+    header { background: #0ea5e9; color: white; padding: 15px; text-align: center; }
+    .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+    .card { border: 1px solid #ddd; border-radius: 8px; background: #fff; padding: 10px; text-align: center; }
+    .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; }
+    .price { font-weight: bold; color: #0ea5e9; margin: 8px 0; }
+    button { background: #0ea5e9; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #0284c7; }
+    #cart { position: fixed; bottom: 20px; right: 20px; background: #0ea5e9; color: white; padding: 12px 18px; border-radius: 30px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛍️ Mi Tienda</h1>
+  </header>
+  <main class="container">
+    <div id="products" class="products"></div>
+  </main>
+  <div id="cart">Carrito (0)</div>
+
+  <script>
+    const products = [
+      {id:'tee', name:'Remera Oversize Minimal', price:14999, img:'https://picsum.photos/seed/tee1/300/200'},
+      {id:'sne', name:'Zapatillas Urban Flow', price:54999, img:'https://picsum.photos/seed/sne1/300/200'},
+      {id:'hdph', name:'Auriculares Pro', price:89999, img:'https://picsum.photos/seed/hdph1/300/200'}
+    ];
+    const cart = {};
+    const $ = s => document.querySelector(s);
+
+    function renderProducts(){
+      $('#products').innerHTML = products.map(p => `
+        <div class="card">
+          <img src="${p.img}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <div class="price">$${p.price.toLocaleString('es-AR')}</div>
+          <button onclick="addToCart('${p.id}')">Agregar</button>
+        </div>
+      `).join('');
+    }
+
+    function addToCart(id){
+      cart[id] = (cart[id]||0)+1;
+      renderCart();
+    }
+
+    function renderCart(){
+      const count = Object.values(cart).reduce((a,b)=>a+b,0);
+      $('#cart').textContent = `Carrito (${count})`;
+    }
+
+    renderProducts();
+  </script>
+</body>
+</html>
